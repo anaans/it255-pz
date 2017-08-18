@@ -1,0 +1,107 @@
+html
+{
+  overflow-x: hidden;
+}
+body {
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: auto;
+  padding: 0;
+  padding-top: 50px;
+}
+
+.blank
+{
+  height: 10px;
+}
+
+header
+{
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+
+}
+
+.headerimage
+{
+  height: 450px;
+  background-image: url("../images/bikes.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+#info-main
+{
+  background-color: #000066;
+  background: -webkit-linear-gradient(midnightblue, #000066 80%); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(midnightblue, #000066 80%); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(midnightblue, #000066 80%); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(midnightblue, #000066 80%); /* Standard syntax */
+  color: white;
+}
+#info-main h2
+{
+  font-weight: bold;
+  color: white;
+}
+
+#best-service
+{
+  font-size: 12px;
+  background-color: white;
+}
+
+#best-service img
+{
+  width: 350px;
+  height: 200px;
+  right: 0px;
+  padding: 10px;
+}
+
+#special-off
+{
+  font-size: 12px;
+  background-color: white;
+}
+
+#special-off img
+{
+  width: 350px;
+  height: 200px;
+}
+
+#contact-main
+{
+  font-size: 12px;
+  background-color: white;
+}
+
+#contact-main img
+{
+  width: 350px;
+  height: 250px;
+  right: 0px;
+  padding: 10px;
+}
+
+.hr-main
+{
+  border: none;
+  height:1px;
+}
+
+footer {
+  background-color: #3f3f3f;
+  padding: 0 0;
+}
+
+.copyright
+{
+  color: #f9f9f9;
+  padding: 20px 0;
+}

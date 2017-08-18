@@ -1,0 +1,37 @@
+<h1> Vasa rezervacija bicikla: </h1>
+
+<form role="form" [formGroup]="rentForm">
+
+    <div class="form-group">
+        <div>
+            <label for="username">Poštovani:</label>
+            <input type="text" class="form-control" formControlName='username' value="{{user}}">
+        </div>
+        <br>
+        <div>
+            <label for="numberofdays">Broj dana: </label>
+            <input type="text" class="form-control" formControlName='numberofdays'>
+        </div>
+        <br>
+        <div>
+            <label for="marka_type">Marka:</label>
+            <input type="text" class="form-control" formControlName='marka_type' value="{{marka}}" >
+        </div>
+        <br>
+        <div>
+            <label for="model_type">Model:</label>
+            <input type="text" class="form-control" formControlName='model_type' value="{{model}}" >
+        </div>
+        <div>
+            <label for="kategorija_type">Kategorija:</label>
+            <input type="text" class="form-control" formControlName='kategorija_type' value="{{kategorija}}" >
+        </div>
+        <br>
+        <div>
+            <label for="price">Cena po danu:</label>
+            <input type="text" class="form-control"  formControlName='price' value="{{cena}}">
+        </div>
+        <br>
+        <button (click)="send()" class="btn btn-primary">Potvrda <span class="glyphicon glyphicon-ok"></span></button>
+    </div>
+</form>

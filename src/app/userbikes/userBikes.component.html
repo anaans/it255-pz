@@ -1,0 +1,31 @@
+<div class="col-lg-12">
+    <table  class="table table-hover" cellspacing="0" >
+        <thead>
+        <tr>
+            <th>Id:</th>
+            <th>Marka: </th>
+            <th>Model: </th>
+            <th>Kategorija: </th>
+            <th>Cena: </th>
+            <th>Options: </th>
+            <th>Rezervisi</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let bike of bikes">
+            <td>{{bike.lid}}</td>
+            <td>{{bike.marka_type}}</td>
+            <td>{{bike.model_type}}</td>
+            <td>{{bike.kategorija_type}}</td>
+            <td>{{bike.price}}</td>
+            <td>{{bike.options}}</td>
+            <td>
+                <button class="btn btn-primary" title="reservation" (click)="edit(bike.lid)"><span class="glyphicon glyphicon-ok"></span></button>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>

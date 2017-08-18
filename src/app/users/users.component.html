@@ -1,0 +1,36 @@
+<div class="col-lg-12">
+    <table  class="display" cellspacing="0" >
+        <thead>
+        <tr>
+            <th>User id:</th>
+            <th>First name: </th>
+            <th>Last name: </th>
+            <th>Username: </th>
+            <th>Address: </th>
+            <th>City: </th>
+            <th>Email: </th>
+            <th>Phone: </th>
+            
+            <th>Delete user: </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let user of listofusers">
+            <td>{{user.id}}</td>
+            <td>{{user.firstname}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.city}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            
+            <td>
+                <button class="btn btn-danger" title="remove" (click)="removeUser(user.id)"><span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
