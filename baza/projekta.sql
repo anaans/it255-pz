@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2017 at 12:04 AM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 7.0.4
+-- Generation Time: Aug 18, 2017 at 09:29 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`aid`, `username`, `password`, `tokenadmin`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '4f226e8b3d3f22d2044cb4e64c954f1ea5d19e8f');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '30d2cb980e4039297b424c3d30a4a15b1641502c');
 
 -- --------------------------------------------------------
 
@@ -60,27 +60,10 @@ CREATE TABLE `bikes` (
 --
 
 INSERT INTO `bikes` (`lid`, `marka_id`, `model_id`, `kategorija_id`, `price`, `options`) VALUES
-(1, 6, 4, 1, 524, 'Nesto');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `fuel`
---
-
-CREATE TABLE `fuel` (
-  `fuel_id` int(11) NOT NULL,
-  `fuel_type` varchar(30) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Dumping data for table `fuel`
---
-
-INSERT INTO `fuel` (`fuel_id`, `fuel_type`) VALUES
-(1, 'Gasoline'),
-(2, 'Disel'),
-(3, 'Essence');
+(1, 6, 4, 1, 524, 'Nesto'),
+(2, 1, 1, 1, 220, 'nista'),
+(3, 3, 5, 2, 150, 'nesto'),
+(4, 5, 3, 2, 300, 'n');
 
 -- --------------------------------------------------------
 
@@ -117,7 +100,7 @@ CREATE TABLE `korisnik` (
   `city` varchar(30) COLLATE utf8_bin DEFAULT NULL,
   `email` varchar(30) COLLATE utf8_bin DEFAULT NULL,
   `phone` varchar(30) COLLATE utf8_bin DEFAULT NULL,
-  `drivelicence` int(11) DEFAULT NULL,
+  `hobi` int(11) DEFAULT NULL,
   `token` varchar(128) COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -125,9 +108,11 @@ CREATE TABLE `korisnik` (
 -- Dumping data for table `korisnik`
 --
 
-INSERT INTO `korisnik` (`id`, `username`, `password`, `firstname`, `lastname`, `address`, `city`, `email`, `phone`, `drivelicence`, `token`) VALUES
+INSERT INTO `korisnik` (`id`, `username`, `password`, `firstname`, `lastname`, `address`, `city`, `email`, `phone`, `hobi`, `token`) VALUES
 (4, 'korisnik', 'e10adc3949ba59abbe56e057f20f883e', 'KorisnikIme', 'KorisnikPrezime', 'Adresa 2', 'Novi Sad', 'korisnik@email.com', '0213456789', 987654321, '5f73623ae44513c5fe4420d392acd0a2e9105e0c'),
-(5, 'neko123', 'e9152b7736697ba1af5db3b8c28e9f35', 'Neko', 'Nekic', 'Nekovljeva 57', 'Beograd', 'neko@neki.com', '44644848', 8451515, '8114ab1a028d440771b3024336ffc2e086f4e1cf');
+(5, 'neko123', 'e9152b7736697ba1af5db3b8c28e9f35', 'Neko', 'Nekic', 'Nekovljeva 57', 'Beograd', 'neko@neki.com', '44644848', 8451515, '9990f81983d85a632caed824453afad3e7fd040a'),
+(6, 'fwwfefw', '2053378eb48348af1b2b786ae6e46a03', 'fwfqef', 'dssfsfs', 'sgsgsgrg', 'ssafwef3', 'anananan@gmail.com', '113456798', 0, '2e4d927d42c4a662b4bc5adb86fda91351361ca6'),
+(7, 'aki92', 'e25eb36e3afe653648f5166ce0563ebb', 'andrej', 'vasiljev', 'andrejeva', 'beograd', 'aki992@gmail.com', '1234686', 0, '5421c1104063ff613942e1035532bfa8978f4a2b');
 
 -- --------------------------------------------------------
 
@@ -145,12 +130,12 @@ CREATE TABLE `marka` (
 --
 
 INSERT INTO `marka` (`marka_id`, `marka_type`) VALUES
-(1, 'Lamborghini'),
-(2, 'Rolls Royce'),
-(3, 'McLaren'),
-(4, 'Ferrari'),
+(1, 'Rocky Mountain'),
+(2, 'Ram Bikes'),
+(3, 'Tomac'),
+(4, 'Time Bikes'),
 (5, 'Bentley'),
-(6, 'Maserati');
+(6, 'Capriolo');
 
 -- --------------------------------------------------------
 
@@ -168,12 +153,51 @@ CREATE TABLE `model` (
 --
 
 INSERT INTO `model` (`model_id`, `model_type`) VALUES
-(1, 'Aventador Roadster LP700-4'),
-(2, 'Phantom DropHead'),
+(1, 'Road bicycle'),
+(2, 'Longtail bicycle'),
 (3, '650 S'),
 (4, '488 Spider'),
-(5, 'GTC'),
+(5, 'Porteur bicycle'),
 (6, 'GranCabrio MC');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `probna`
+--
+
+CREATE TABLE `probna` (
+  `fuel_id` int(11) NOT NULL,
+  `fuel_type` varchar(30) COLLATE utf8_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `probna`
+--
+
+INSERT INTO `probna` (`fuel_id`, `fuel_type`) VALUES
+(1, 'Gasoline'),
+(2, 'Disel'),
+(3, 'Essence');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `probnadva`
+--
+
+CREATE TABLE `probnadva` (
+  `transmission_id` int(11) NOT NULL,
+  `transmission_type` varchar(30) COLLATE utf8_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `probnadva`
+--
+
+INSERT INTO `probnadva` (`transmission_id`, `transmission_type`) VALUES
+(1, 'Automatic'),
+(2, 'Manual');
 
 -- --------------------------------------------------------
 
@@ -197,26 +221,8 @@ CREATE TABLE `reservation` (
 
 INSERT INTO `reservation` (`rid`, `username`, `marka_type`, `model_type`, `kategorija_type`, `price`, `numberofdays`) VALUES
 (7, 'marko', 'Rolls Royce', 'Phantom DropHead', 'Gasoline', '1000.00', 5),
-(8, 'korisnik', 'Bentley', 'GTC', 'Gasoline', '2300.00', 8);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `transmission`
---
-
-CREATE TABLE `transmission` (
-  `transmission_id` int(11) NOT NULL,
-  `transmission_type` varchar(30) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Dumping data for table `transmission`
---
-
-INSERT INTO `transmission` (`transmission_id`, `transmission_type`) VALUES
-(1, 'Automatic'),
-(2, 'Manual');
+(8, 'korisnik', 'Bentley', 'GTC', 'Gasoline', '2300.00', 8),
+(9, 'aki92', 'Maserati', '488 Spider', NULL, '524.00', 3);
 
 --
 -- Indexes for dumped tables
@@ -233,12 +239,6 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `bikes`
   ADD PRIMARY KEY (`lid`);
-
---
--- Indexes for table `fuel`
---
-ALTER TABLE `fuel`
-  ADD PRIMARY KEY (`fuel_id`);
 
 --
 -- Indexes for table `kategorija`
@@ -265,16 +265,22 @@ ALTER TABLE `model`
   ADD PRIMARY KEY (`model_id`);
 
 --
+-- Indexes for table `probna`
+--
+ALTER TABLE `probna`
+  ADD PRIMARY KEY (`fuel_id`);
+
+--
+-- Indexes for table `probnadva`
+--
+ALTER TABLE `probnadva`
+  ADD PRIMARY KEY (`transmission_id`);
+
+--
 -- Indexes for table `reservation`
 --
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`rid`);
-
---
--- Indexes for table `transmission`
---
-ALTER TABLE `transmission`
-  ADD PRIMARY KEY (`transmission_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -289,12 +295,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `bikes`
 --
 ALTER TABLE `bikes`
-  MODIFY `lid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `fuel`
---
-ALTER TABLE `fuel`
-  MODIFY `fuel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `lid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `kategorija`
 --
@@ -304,7 +305,7 @@ ALTER TABLE `kategorija`
 -- AUTO_INCREMENT for table `korisnik`
 --
 ALTER TABLE `korisnik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `marka`
 --
@@ -316,15 +317,20 @@ ALTER TABLE `marka`
 ALTER TABLE `model`
   MODIFY `model_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
+-- AUTO_INCREMENT for table `probna`
+--
+ALTER TABLE `probna`
+  MODIFY `fuel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `probnadva`
+--
+ALTER TABLE `probnadva`
+  MODIFY `transmission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT for table `transmission`
---
-ALTER TABLE `transmission`
-  MODIFY `transmission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
